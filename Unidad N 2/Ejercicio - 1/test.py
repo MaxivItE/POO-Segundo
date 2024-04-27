@@ -5,12 +5,10 @@ def mostrarCajadeAhorro(caja_de_ahorro, i):
 
 def elegirCajadeAhorro(caja_de_ahorro01, caja_de_ahorro02, caja_de_ahorro03):
     system("cls")
-    i=0
+    i: int = 0
     mostrarCajadeAhorro(caja_de_ahorro01, i)
-    i+=1
-    mostrarCajadeAhorro(caja_de_ahorro02, i)
-    i+=1
-    mostrarCajadeAhorro(caja_de_ahorro03, i)
+    mostrarCajadeAhorro(caja_de_ahorro02, i+1)
+    mostrarCajadeAhorro(caja_de_ahorro03, i+2)
     print("\n***ELEGIR CAJA DE AHORRO***")
     numero_caja_elegida = int(input(("\nCaja de Ahorro Nº: ")))
     match numero_caja_elegida:
@@ -29,23 +27,15 @@ def elegirOpcion():
     opcion = int(input("Respuesta: "))
     return opcion
 
-def mostrarSaldo(saldo, mensaje_error):
-    if saldo < 0:
-        print(f"\n NO se pudo hacer la extración ya que {mensaje_error}")
-    else:
-        print(f"\n Nuevo Saldo: ${saldo}")
-
 def extraerPlata(caja_ahorro_elegida):
+    system("cls")
     importe_extraer = float(input("\nIngrese el importe a extraer: $"))
-    saldo = caja_ahorro_elegida.extraer(importe_extraer)
-    system("cls")
-    mostrarSaldo(saldo, "el saldo no es suficiente.")
-
+    caja_ahorro_elegida.extraer(importe_extraer)
+    
 def depositarIngresos(caja_ahorro_elegida):
-    importe_depositar = float(input("\nIngrese el importe a depositar: $"))
-    saldo = caja_ahorro_elegida.depositar(importe_depositar)
     system("cls")
-    mostrarSaldo(saldo, "el deposito del importe no es positivo")
+    importe_depositar = float(input("\nIngrese el importe a depositar: $"))
+    caja_ahorro_elegida.depositar(importe_depositar)
 
 def validarCUIL(caja_ahorro_elegida):
     cuilt = caja_ahorro_elegida.getCuil()
@@ -57,7 +47,6 @@ def validarCUIL(caja_ahorro_elegida):
 
 def menu(caja_de_ahorro01, caja_de_ahorro02, caja_de_ahorro03):
     caja_ahorro_elegida = elegirCajadeAhorro(caja_de_ahorro01, caja_de_ahorro02, caja_de_ahorro03)
-    system("cls")
     opcion = elegirOpcion()
     while opcion != 0:
         match opcion:

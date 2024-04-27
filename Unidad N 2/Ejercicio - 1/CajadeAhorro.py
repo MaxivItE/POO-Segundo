@@ -16,22 +16,20 @@ class CajadeAhorro:
     def getCuil(self):
         return self.__cuil
 
-    def __str__(self):
-        return '\n Número de Cuenta: {}\n Cuil: {}\n Apellido: {}\n Nombre: {}\n Saldo: ${}' .format(self.__nroCuenta, self.__cuil, self.__apellido, self.__nombre, self.__saldo)
-
-    def extraer(self, importe=float):
+    def extraer(self, importe: float):
         if self.__saldo >= importe:
             self.__saldo-=importe
-            return self.__saldo
+            print(f"\n Saldo existosamente extraido\n Nuevo saldo: ${self.__saldo}")
         else:
-            return -1
+            saldo_negativo=importe-self.__saldo
+            print(f"\n NO se pudo realizar el importe. El importe ingresado superó al saldo por ${saldo_negativo}")
 
-    def depositar(self, importe):
+    def depositar(self, importe: float):
         if importe > 0:
             self.__saldo+=importe
-            return self.__saldo
+            print(f"\n Saldo existosamente depositado\n Nuevo saldo: ${self.__saldo}")
         else:
-            return -1
+            print(" El Importe ingresado no modificó el saldo porque es negativo")
 
     def validarCUIL(self, cuilt):
         tamano_CUIL = 11
@@ -75,3 +73,7 @@ class CajadeAhorro:
                 verificacion = "Z"    
             print (f"\n El CUIL/T es erroneo\n CUIL/T ingresado: {str(tipo_XY)}-{str(dni)}-{str(verificacion)}\n CUIL/T Válido: XY-12345678-Z")
             return False
+    
+    def __str__(self):
+        return '\n Número de Cuenta: {}\n Cuil: {}\n Apellido: {}\n Nombre: {}\n Saldo: ${}' .format(
+                self.__nroCuenta, self.__cuil, self.__apellido, self.__nombre, self.__saldo)

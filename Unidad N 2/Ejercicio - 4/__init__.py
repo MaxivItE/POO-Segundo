@@ -14,9 +14,9 @@ cargarlos en el Gestor de Pedidos.
 solicitar la patente de la moto para asignarla, validar que la moto existe.
 4. Leer por teclado número de patente, identificador de pedido, y tiempo real de entrega,
 modificar en el Gestor de Pedidos, el tiempo real de entrega para ese pedido.
-4. Leer por una patente de una moto, mostrar los datos del conductor y el tiempo promedio
+5. Leer por una patente de una moto, mostrar los datos del conductor y el tiempo promedio
 real de entrega de los pedidos que hizo.
-5. Generar un listado para cada moto, para el pago de comisiones a los conductores de las
+6. Generar un listado para cada moto, para el pago de comisiones a los conductores de las
 motos:
 
 Patente de Moto: xxxx-xxx
