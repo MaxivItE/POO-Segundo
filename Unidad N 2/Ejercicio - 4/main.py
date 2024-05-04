@@ -10,8 +10,8 @@ def marcarOpcion() -> str:
     print (" 3. Mostrar datos del Conductor")
     print (" 4. Mostrar el pago de comisión para cada conductor")
     print (" 0. Salir")
-    opcion = str (input (" Respuesta: "))
-    return opcion.lower()
+    return input (" Respuesta: ")
+    
 
 def verificarPatenteIngresada(patente_ingresada: str) -> str:
     patente_encontrada: bool = gestor_motos.verificarPatente(patente_ingresada)
@@ -53,16 +53,12 @@ def menuOpciones() -> None:
     opcion: str = marcarOpcion()
     while opcion != '0':
         system("cls")
-        match opcion:
-            case '1':
-                cargarPedidos()
-            case '2':
-                modificarTiempoRealEntrega()
-            case '3':
-                mostrarDatosDelConductor()
-            case '4':
-                mostrarPagoDeComisiones()
-            case 'mostrar':
+        match opcion.lower():
+            case '1': cargarPedidos()
+            case '2': modificarTiempoRealEntrega()
+            case '3': mostrarDatosDelConductor()
+            case '4': mostrarPagoDeComisiones()
+            case 'mostrar': 
                 gestor_motos.mostrarListaMotos()
                 gestor_pedidos.mostrarListaPedidos()
         opcion = marcarOpcion()

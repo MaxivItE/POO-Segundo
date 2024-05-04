@@ -22,8 +22,11 @@ class GestorMotos:
                 self.__lista_motos.append(unaMoto)
         archivo_motos.close()
     
+    def obtenerTamanoLista(self) -> int:
+        return len(self.__lista_motos)
+    
     def verificarPatente(self, patente_ingresada: str) -> bool:
-        tamano_lista_motos: int = len(self.__lista_motos)
+        tamano_lista_motos: int = self.obtenerTamanoLista()
         patente_encontrada: bool = False
         i: int = 0
         while (i < tamano_lista_motos) and (patente_encontrada != True):
@@ -38,7 +41,7 @@ class GestorMotos:
         print(self.__lista_motos[posicion_patente_lista])
 
     def buscarDatosDeConductor(self, patente_moto_ingresada) -> None:
-        tamano_lista_motos: int = len(self.__lista_motos)
+        tamano_lista_motos: int = self.obtenerTamanoLista()
         patente_encontrada: bool = False
         i: int = 0
         while (i < tamano_lista_motos) and (patente_encontrada != True):
@@ -48,14 +51,14 @@ class GestorMotos:
             i+=1
         self.mostrarConductor(posicion_patente_lista)
     
-    def mostrarListaMotoComision(self, moto, patente_moto_lista):
+    def mostrarListaMotos(self, moto, patente_moto_lista):
         nombre_conductor_lista = self.__lista_motos[moto].getNombreConductor()
         apellido_conductor_lista = self.__lista_motos[moto].getApellidoConductor()
         print(f"\n Patente de Moto: {patente_moto_lista}")
         print(f" Conductor: {apellido_conductor_lista} {nombre_conductor_lista}")
 
     def listarMotos(self, gestor_pedidos):
-        tamano_lista_motos: int = len(self.__lista_motos)
+        tamano_lista_motos: int = self.obtenerTamanoLista()
         for i in range(tamano_lista_motos):
             lista_id_pedidos: str = []
             lista_id_tiempo_estimado: str = []
@@ -64,7 +67,7 @@ class GestorMotos:
             precio_total: float = 0
             comision: int = 0
             patente_moto_lista = self.__lista_motos[i].getPatente()
-            self.mostrarListaMotoComision(i, patente_moto_lista)
+            self.mostrarListaMotos(i, patente_moto_lista)
             gestor_pedidos.listarPedidosMotos(patente_moto_lista, lista_id_pedidos, lista_id_tiempo_estimado, lista_tiempo_real, lista_precio)
             print(" Identificador de pedido     Tiempo estimado     Tiempo real     Precio")
             tamano_id_pedidos_lista = len(lista_id_pedidos)
@@ -78,7 +81,7 @@ class GestorMotos:
             print(f" Comisión: ${comision} (20% del total)")
             print(f"-------------------------------------------------------------------------------------------------------")
 
-    def mostrarListaMotos(self) -> None:
-        tamano_lista_motos = len(self.__lista_motos)
+    def mostrar(self) -> None:
+        tamano_lista_motos = self.obtenerTamanoLista()
         for i in range(tamano_lista_motos):
             print(self.__lista_motos[i])

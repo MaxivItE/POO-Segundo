@@ -48,7 +48,8 @@ class GestorPedidos:
         tiempo_entrega_archivo: int = unPedido.getTiempoEntrega()
         tiempo_real_entrega_archivo: int = unPedido.getTiempoRealEntrega()
         precio_pedido_archivo: float = unPedido.getPrecioPedido()
-        archivo_pedido.write("\n" + patente_moto_archivo + ',' + id_pedido_archivo + ',' + comidas_pedidas_archivo + ',' + tiempo_entrega_archivo + ',' + tiempo_real_entrega_archivo + ',' + precio_pedido_archivo)
+        archivo_pedido.write("\n" + patente_moto_archivo + ',' + id_pedido_archivo + ',' + comidas_pedidas_archivo + ',' + tiempo_entrega_archivo + ','
+                                  + tiempo_real_entrega_archivo + ',' + precio_pedido_archivo)
         self.__lista_pedidos.append(unPedido)
         archivo_pedido.close()
 
@@ -115,7 +116,7 @@ class GestorPedidos:
             patente_moto_lista: str = self.__lista_pedidos[i].getPatenteMoto()
             if patente_moto_ingresada == patente_moto_lista:
                 self.mostrarTiempoRealEntregas(i)
-    
+
     def listarPedidosMotos(self, patente_moto_lista, lista_id_pedidos, lista_id_tiempo_estimado, lista_tiempo_real, lista_precio):
         tamano_lista_pedidos: int = len(self.__lista_pedidos)
         i: int = 0
