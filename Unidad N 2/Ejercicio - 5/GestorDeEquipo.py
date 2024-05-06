@@ -65,7 +65,17 @@ class GestorDeEquipo:
         while posicion_equipo_lista < tamano_lista_equipo and equipo_encontrado != True:
             nombre_equipo_lista = str(self.__lista_de_equipos[posicion_equipo_lista].getNombreEquipo())
             id_equipo_lista = str(self.__lista_de_equipos[posicion_equipo_lista].getIdDeEquipo())
-            if nombre_equipo_ingresado == nombre_equipo_lista:
-                gestor_fechas.consultarPartidosDeEquipo(nombre_equipo_ingresado, id_equipo_lista)
+            if nombre_equipo_ingresado.lower() == nombre_equipo_lista.lower():
+                gestor_fechas.consultarPartidosDeEquipo(nombre_equipo_lista, id_equipo_lista)
                 equipo_encontrado = True
             posicion_equipo_lista+=1
+        if equipo_encontrado != True:
+            print(" El equipo ingresado no se encotró o no es correcto.")
+
+    def cargarTablaDePosicionesEnCSV(self) -> None:
+        with open("tablaDePosiciones2024.csv", 'w', newline = '') as archivo_tabla_de_posiciones:
+            posicion = csv.writer(archivo_tabla_de_posiciones)
+            posicion.writerow(['Equipo', 'Goles a Favor', 'Goles en Contra', 'Diferencia de Goles', 'Puntos'])
+            for equipo in range(len(self.__lista_de_equipos)):
+                posicion.writerow([self.__lista_de_equipos[equipo].getNombreEquipo(), self.__lista_de_equipos[equipo].getGolesAFavor(), self.__lista_de_equipos[equipo].getGolesEnContra(), self.__lista_de_equipos[equipo].getDiferenciaDeGoles(), self.__lista_de_equipos[equipo].getPuntos()])
+        print("\t Tabla de Posiciones cargada correctamente.")

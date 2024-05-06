@@ -25,5 +25,4 @@ class FechaDeFutbol:
         return self.__cantidad_goles_visitante
     
     def __str__(self) -> str:
-        return ' Fecha_del_partido: {}\n Identificación del equipo Local: {}\n Identificación del equipo Visitante: {}\n Cantidad de Goles del equipo Local: {}\n Cantidad de Goles del equipo Visitante: {}' .format(
-                            self.__fecha_del_partido,               self.__id_equipo_local,                self.__id_equipo_visitante,             self.__cantidad_goles_local,             self.__cantidad_goles_visitante)
+        return ' Fecha_del_partido: {}\n Identificación del equipo Local: {}\n Identificación del equipo Visitante: {}\n Cantidad de Goles del equipo Local: {}\n Cantidad de Goles del equipo Visitante: {}' .format(self.__fecha_del_partido, self.__id_equipo_local, self.__id_equipo_visitante, self.__cantidad_goles_local, self.__cantidad_goles_visitante)

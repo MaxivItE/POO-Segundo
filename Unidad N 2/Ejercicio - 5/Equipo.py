@@ -14,7 +14,7 @@ class Equipo:
         self.__goles_en_contra = goles_en_contra
         self.__diferencia_de_goles = diferencia_de_goles
         self.__puntos = puntos
-    
+
     def getIdDeEquipo(self) -> str:
         return self.__id_equipo
 
@@ -50,5 +50,4 @@ class Equipo:
             return self.__goles_a_favor > otroEquipo.__goles_a_favor
 
     def __str__(self) -> str:
-        return '\n Identificación del equipo: {}\n Nombre del Equipo: {}\n Goles a Favor: {}\n Goles en Contra: {}\n Diferencia de Goles: {}\n Puntos acumulados: {}' .format(
-                                    self.__id_equipo,   self.__nombre_del_equipo, self.__goles_a_favor, self.__goles_en_contra, self.__diferencia_de_goles,  self.__puntos)
+        return '\n Identificación del equipo: {}\n Nombre del Equipo: {}\n Goles a Favor: {}\n Goles en Contra: {}\n Diferencia de Goles: {}\n Puntos acumulados: {}' .format(self.__id_equipo, self.__nombre_del_equipo, self.__goles_a_favor, self.__goles_en_contra, self.__diferencia_de_goles, self.__puntos)
