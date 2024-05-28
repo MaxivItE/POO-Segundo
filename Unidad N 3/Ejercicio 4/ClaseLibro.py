@@ -24,4 +24,4 @@ class Libro(Publicacion):
         return precio_base - precio_importe
 
     def __str__(self) -> str:
-        return '\n{}\n Nombre Del Autor: {}\n Fecha de Edición: {}\n Cantidad de Páginas: {}' .format(super().mostrarPublicacion(), self.__nombre_autor, self.__fecha_edicion, self.__cantidad_paginas)
+        return '{}\n Nombre Del Autor: {}\n Fecha de Edición: {}\n Cantidad de Páginas: {}' .format(super().mostrarPublicacion(), self.__nombre_autor, self.__fecha_edicion, self.__cantidad_paginas)

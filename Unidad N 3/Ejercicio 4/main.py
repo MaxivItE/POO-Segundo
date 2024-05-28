@@ -1,8 +1,8 @@
-from GestorPublicaciones import GestorPublicaciones
+from ClaseLista import Lista
 from GestorTest import test
 from GestorMenu import menu
 
 if __name__ == '__main__':
-    gestor_publicaciones = GestorPublicaciones()
-    test(gestor_publicaciones)
-    menu(gestor_publicaciones)
+    clase_lista = Lista()
+    test(clase_lista)
+    menu(clase_lista)

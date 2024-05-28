@@ -33,7 +33,7 @@ def cargarPublicacionDeAudioLibro() -> tuple:
     nombre_narrador = str(input(" Nombre del Narrador: "))
     return tiempo_reproduccion, nombre_narrador
 
-def agregarPublicacion(formato_publicacion, gestor_publicaciones):
+def agregarPublicacion(formato_publicacion, clase_lista):
     formato_encontrado:bool = False
     while formato_encontrado != True:
         system("cls")
@@ -42,7 +42,7 @@ def agregarPublicacion(formato_publicacion, gestor_publicaciones):
             datos_publicacion = tuple(cargarDatosDePublicacion(formato_libro))
             datos_libro = tuple(cargarPublicacionDeLibro())
             unLibro = Libro(titulo = datos_publicacion[0], categoria = datos_publicacion[1], precio_base = datos_publicacion[2], nombre_autor = datos_libro[0], fecha_edicion = datos_libro[1], cantidad_paginas = datos_libro[2])
-            gestor_publicaciones.cargarPublicacion(unLibro)
+            clase_lista.agregarPublicacion(unLibro)
             system("cls")
             print(f"\t El {formato_libro} {datos_publicacion[0]} fue guardado exitosamente.")
             formato_encontrado = True
@@ -51,7 +51,7 @@ def agregarPublicacion(formato_publicacion, gestor_publicaciones):
             datos_publicacion = tuple(cargarDatosDePublicacion(formato_audio_libro))
             datos_audio_libro = tuple(cargarPublicacionDeAudioLibro())
             unAudioLibro = AudioLibro(titulo = datos_publicacion[0], categoria = datos_publicacion[1], precio_base = datos_publicacion[2], tiempo_reproduccion = datos_audio_libro[0], nombre_narrador = datos_audio_libro[1])
-            gestor_publicaciones.cargarPublicacion(unAudioLibro)
+            clase_lista.agregarPublicacion(unAudioLibro)
             system("cls")
             print(f"\t El {formato_audio_libro} {datos_publicacion[0]} fue guardado exitosamente.")
             formato_encontrado = True
@@ -60,7 +60,7 @@ def agregarPublicacion(formato_publicacion, gestor_publicaciones):
             formato_publicacion = ingresarFormatoDePublicacion()
             formato_encontrado = False
 
-def menu(gestor_publicaciones) -> None:
+def menu(clase_lista) -> None:
     system("cls")
     opcion = str(ingresarOpcion())
     while opcion != '0':
@@ -68,16 +68,18 @@ def menu(gestor_publicaciones) -> None:
         match opcion.lower():
             case '1':
                 formato_publicacion = str(ingresarFormatoDePublicacion())
-                agregarPublicacion(formato_publicacion, gestor_publicaciones)
+                agregarPublicacion(formato_publicacion, clase_lista)
             case '2':
                 pos_lista = int(input(" Ingresar una posición de la lista: "))
-                gestor_publicaciones.mostrarTipoDePublicacion(pos_lista, Libro, AudioLibro)
+                clase_lista.mostrarTipoDePublicacion(pos_lista - 1, Libro, AudioLibro)
             case '3':
-                gestor_publicaciones.mostrarCantidadDePublicaciones(Libro, AudioLibro)
+                clase_lista.mostrarCantidadDePublicaciones(Libro, AudioLibro)
             case '4':
-                gestor_publicaciones.mostrarPublicaciones()
+                clase_lista.mostrarPublicaciones()
             case 'mostrar':
-                gestor_publicaciones.mostrar()
+                print("\n---PUBLICACIONES DE LA EDITORIAL COMPLETA---")
+                for dato in clase_lista:
+                    print("\n Datos de La Publicacion:", dato)
             case _:
                 print("ERROR al ingresar la opción. Por favor ingrese una opcion especificada")
         opcion = (ingresarOpcion())

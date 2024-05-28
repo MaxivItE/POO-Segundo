@@ -20,4 +20,4 @@ class Publicacion:
         self.__precio_base = precio_final
 
     def mostrarPublicacion(self) -> str:
-        return '\n Título: {}\n Categoría: {}\n Precio Base: ${}' .format(self.__titulo, self.__categoria, self.__precio_base)
+        return '\n Título: {}\n Categoría: {}\n Precio Final: ${}' .format(self.__titulo, self.__categoria, self.__precio_base)

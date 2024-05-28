@@ -17,4 +17,4 @@ class AudioLibro(Publicacion):
         return precio_base + precio_importe
 
     def __str__(self) -> str:
-        return '\n{}\n Tiempo de Reproducción: {} minutos\n Nombre del narrador/a: {}' .format(super().mostrarPublicacion(), self.__tiempo_reproduccion, self.__nombre_narrador)
+        return '{}\n Tiempo de Reproducción: {} minutos\n Nombre del narrador/a: {}' .format(super().mostrarPublicacion(), self.__tiempo_reproduccion, self.__nombre_narrador)
