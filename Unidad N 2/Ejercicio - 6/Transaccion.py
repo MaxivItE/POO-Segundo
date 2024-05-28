@@ -18,5 +18,5 @@ class Transaccion:
         return self.__importe_transaccion
 
     def __str__(self) -> str:
-        return ' \n CVU: {}\n Número de Transacciones: {}\n Importe: {}\n Tipo de Transaccion (D: Débito - C: Crédito): {}' .format(self.__CVU_transaccion, self.__numero_transaccion, self.__importe_transaccion, self.__tipo_transaccion)
+        return ' CVU: {}\n Número de Transacciones: {}\n Importe: {}\n Tipo de Transaccion (D: Débito - C: Crédito): {}\n' .format(self.__CVU_transaccion, self.__numero_transaccion, self.__importe_transaccion, self.__tipo_transaccion)
     

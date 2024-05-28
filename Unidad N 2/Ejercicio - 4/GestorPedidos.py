@@ -48,8 +48,7 @@ class GestorPedidos:
         tiempo_entrega_archivo: int = unPedido.getTiempoEntrega()
         tiempo_real_entrega_archivo: int = unPedido.getTiempoRealEntrega()
         precio_pedido_archivo: float = unPedido.getPrecioPedido()
-        archivo_pedido.write("\n" + patente_moto_archivo + ',' + id_pedido_archivo + ',' + comidas_pedidas_archivo + ',' + tiempo_entrega_archivo + ','
-                                  + tiempo_real_entrega_archivo + ',' + precio_pedido_archivo)
+        archivo_pedido.write("\n" + patente_moto_archivo + ',' + id_pedido_archivo + ',' + comidas_pedidas_archivo + ',' + tiempo_entrega_archivo + ',' + tiempo_real_entrega_archivo + ',' + precio_pedido_archivo)
         self.__lista_pedidos.append(unPedido)
         archivo_pedido.close()
 

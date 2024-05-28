@@ -24,7 +24,7 @@ class GestorTransacciones:
                 importe_transaccion = float(datos_transaccion[2])
                 verificacion_tipo_transicion = str(self.verificarTipoDeTransaccion(datos_transaccion[3]))
                 if verificacion_tipo_transicion != 'Verificado':
-                    print(f" Error al ingresar los datos de la transacción número: {numero_transaccion}. No se realizó la operación.\n")
+                    print(f"\t Error al ingresar los datos de la transacción número: {numero_transaccion}. No se realizó la operación.\n")
                 else:
                     tipo_transaccion = str(datos_transaccion[3])
                     unaTransaccion = Transaccion(CVU_transaccion, numero_transaccion, importe_transaccion, tipo_transaccion)
@@ -33,19 +33,26 @@ class GestorTransacciones:
     def ObtenerCantidadDeTransacciones(self) -> int:
         return len(self.__lista_transacciones)
 
-    def depositarImporte(self, transaccion_lista, gestor_cliente, cuenta_arreglo) -> None:
-        importe_transaccion = float(self.__lista_transacciones[transaccion_lista].getImporteTransaccion())
-        gestor_cliente.actualizarSaldo(cuenta_arreglo, importe_transaccion)
+    def depositarImporte(self, transacciones_total, gestor_cliente, cuenta_arreglo) -> None:
+        gestor_cliente.actualizarSaldo(cuenta_arreglo, transacciones_total)
 
     def verificarTransaccionDelCliente(self, CVU_cuenta, cuenta_arreglo, gestor_cliente):
         cantidad_transacciones = int(self.ObtenerCantidadDeTransacciones())
         transaccion_lista:int = 0
+        transacciones_total:float = 0
+        transacciones_encontradas:bool = False
         while transaccion_lista < cantidad_transacciones:
             CVU_transaccion = str(self.__lista_transacciones[transaccion_lista].getCVUTransaccion()) 
             if CVU_cuenta == CVU_transaccion:
-                self.depositarImporte(transaccion_lista, gestor_cliente, cuenta_arreglo)
+                importe_transaccion = float(self.__lista_transacciones[transaccion_lista].getImporteTransaccion())
+                transacciones_total += importe_transaccion
+                transacciones_encontradas = True
             transaccion_lista += 1
+        self.depositarImporte(transacciones_total, gestor_cliente, cuenta_arreglo)
+        if transacciones_encontradas != True:
+            print("\n\t No se encontraron transacciones")
 
     def mostrar(self) -> None:
+        print("\n***TRANSACCIONES REALIZADAS***")
         for i in range(len(self.__lista_transacciones)):
             print(self.__lista_transacciones[i])
