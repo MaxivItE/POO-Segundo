@@ -9,8 +9,8 @@ class AudioLibro(Publicacion):
         self.__tiempo_reproduccion = tiempo_reproduccion
         self.__nombre_narrador = nombre_narrador
 
-    def obtenerImporteDePublicacion(self, unAudioLibro) -> float:
-        precio_base = float(unAudioLibro.getPrecioBase())
+    def obtenerImporteDePublicacion(self) -> float:
+        precio_base = float(self.getPrecioBase())
         porcentaje_regalias:int = 10
         porcentaje_total: int = 100
         precio_importe = float((precio_base * porcentaje_regalias) / porcentaje_total)

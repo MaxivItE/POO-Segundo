@@ -6,7 +6,7 @@ class Nodo:
 
     def __init__(self, unaPublicacion) -> None:
         self.__publicacion = unaPublicacion
-        self.__publicacion.cargarImporteDePublicacion(self.__publicacion)
+        self.__publicacion.cargarImporteDePublicacion()
         self.__siguiente_publicacion = None
 
     def setSiguientePublicacion(self, siguiente_publicacion) -> None:

@@ -15,8 +15,8 @@ class Publicacion:
     def obtenerImporteDePublicacion(self) -> float:
         pass
 
-    def cargarImporteDePublicacion(self, unaPublicacion) -> None:
-        precio_final = float(self.obtenerImporteDePublicacion(unaPublicacion))
+    def cargarImporteDePublicacion(self) -> None:
+        precio_final = float(self.obtenerImporteDePublicacion())
         self.__precio_base = precio_final
 
     def mostrarPublicacion(self) -> str:

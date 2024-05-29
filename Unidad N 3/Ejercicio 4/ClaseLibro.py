@@ -14,11 +14,11 @@ class Libro(Publicacion):
     def getFechaEdicion(self) -> str:
         return self.__fecha_edicion
 
-    def obtenerImporteDePublicacion(self, unLibro) -> float:
+    def obtenerImporteDePublicacion(self) -> float:
+        precio_base = float(self.getPrecioBase())
         porcentaje_total:int = 100
-        precio_base = float(unLibro.getPrecioBase())
         fecha_actual:int = 2024
-        fecha_edicion = str(unLibro.getFechaEdicion())
+        fecha_edicion = str(self.__fecha_edicion)
         ano_antiguedad = int(fecha_actual - int(fecha_edicion[6:]))
         precio_importe = float((precio_base * ano_antiguedad) / porcentaje_total)
         return precio_base - precio_importe
