@@ -13,10 +13,10 @@ class GestorEdificios:
             edificio = csv.reader(archivo_edificios, delimiter=';')
             next(edificio)
             print("\n")
-            aux = int(0)
+            id_edificio_departamentos:int = 0
             for datos_archivo in edificio:
-                if aux != datos_archivo[0]:
-                    aux = datos_archivo[0]
+                if id_edificio_departamentos != datos_archivo[0]:
+                    id_edificio_departamentos = datos_archivo[0]
                     unEdificio = Edificio(id_edificio = int(datos_archivo[0]), nombre_edificio = str(datos_archivo[1]), direccion = str(datos_archivo[2]), nombre_Empresa_constructora = str(datos_archivo[3]), cantidad_pisos = int(datos_archivo[4]), cantidad_departamentos = int(datos_archivo[5]))
                     self.__lista_edificios.append(unEdificio)
                 else:
