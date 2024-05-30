@@ -43,7 +43,7 @@ class GestorMatriculas:
         if contador_empleados == 0:
             print(f"\n El programa de Capacitacion {nombre_programa_lista} NO tiene empleados matriculados")
 
-    def verificarMatriculacionEmpleado(self, id_empleado):
+    def verificarMatriculacionEmpleado(self, id_empleado) -> bool:
         pos_matricula: int = 0
         cantidad_matriculas = len(self.__lista_matriculas)
         while pos_matricula < cantidad_matriculas:

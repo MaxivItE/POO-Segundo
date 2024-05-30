@@ -8,10 +8,10 @@ class Empleado:
         self.__nombre_apellido = nombre_apellido
         self.__id_empleado = id_empleado
         self.__puesto = puesto
-    
+
     def getNombreApellido(self) -> str:
         return self.__nombre_apellido
-    
+
     def getIDEmpleado(self) -> int:
         return self.__id_empleado
 

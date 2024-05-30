@@ -1,27 +1,27 @@
 from os import system
 
-
-def ingresarOpcion() -> int:
+def ingresarOpcion() -> str:
     print("\n 1. Informar duración de los programas de un empleado")
     print(" 2. Mostrar empleados de un Programa de capacitación")
     print(" 3. Mostrar empleados que NO están matriculados")
     print(" 0. Salir")
     return str(input("Respuesta: "))
 
-def verificarExistenciaEmpleado(gestor_empleados, id_ingresado, gestor_matriculas):
+def verificarExistenciaEmpleado(gestor_empleados, id_ingresado, gestor_matriculas) -> None:
     empleado_encontrado = bool(gestor_empleados.verificarIDEmpleado(id_ingresado))
     if empleado_encontrado != True:
         print(f"\n El empleado con el Identificador {id_ingresado} NO existe")
     else:
         gestor_matriculas.verificarMatriculasEmpleado(id_ingresado)
 
-def verificarExistenciaPrograma(gestor_programas, nombre_programa, gestor_matriculas):
+def verificarExistenciaPrograma(gestor_programas, nombre_programa, gestor_matriculas) -> None:
     programa_encontrado = bool(gestor_programas.verificarNombrePrograma(nombre_programa))
     if programa_encontrado != True:
         print(f"\n El programa {nombre_programa} NO existe")
     else:
         gestor_matriculas.verificarEmpleadosPrograma(nombre_programa)
-def menu(gestor_empleado, gestor_matriculas, gestor_programas):
+
+def menu(gestor_empleado, gestor_matriculas, gestor_programas) -> None:
     system("cls")
     opcion = str(ingresarOpcion())
     while opcion != '0':

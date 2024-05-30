@@ -2,7 +2,7 @@
 class GestorEmpleados:
     __lista_empleados: list
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.__lista_empleados = []
     
     def inscribirEmpleado(self, unEmpleado) -> None:
@@ -19,7 +19,7 @@ class GestorEmpleados:
         return False
 
     def verificarEmpleadosMatriculados(self, gestor_matriculas) -> None:
-        cantidad_empleados = (len(self.__lista_empleados))
+        cantidad_empleados = len(self.__lista_empleados)
         contador_sin_matriculacion:int = 0
         contador_con_matriculacion:int = 0
         print("\n---EMPLEADOS SIN MATRICULACIÓN---\n")

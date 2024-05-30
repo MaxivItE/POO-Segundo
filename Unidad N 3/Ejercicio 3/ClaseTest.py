@@ -1,7 +1,7 @@
 from ClaseEmpleado import Empleado
 from ClaseProgramaCapacitacion import ProgramaCapacitacion
 
-def test(gestor_empleados, gestor_programas, gestor_matriculas):
+def test(gestor_empleados, gestor_programas, gestor_matriculas) -> None:
     empleado1 = Empleado("Mariano Ponce", 124, "Programador")
     empleado2 = Empleado("Alejandro Baez", 160, "Sistemas")
     empleado3 = Empleado("Mauricio Perez", 84, "Electrónico")

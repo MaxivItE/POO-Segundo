@@ -8,7 +8,7 @@ class GestorProgramasCapacitacion:
     def cargarPrograma(self, unPrograma) -> None:
         self.__lista_programas.append(unPrograma)
 
-    def verificarNombrePrograma(self, nombre_programa):
+    def verificarNombrePrograma(self, nombre_programa) -> bool:
         pos_programa:int = 0
         cantidad_programas = int(len(self.__lista_programas))
         while pos_programa < cantidad_programas:

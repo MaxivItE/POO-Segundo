@@ -8,12 +8,12 @@ class Matricula:
         self.__fecha_matricula = fecha_matricula
         self.__empleado = empleado
         self.__programa = programa
-    
+
     def getEmpleado(self) -> object:
         return self.__empleado
 
     def getPrograma(self) -> object:
         return self.__programa
 
-    def __str__(self):
+    def __str__(self) -> str:
         return '\n Fecha de Matrícula: {}{}{}' .format(self.__fecha_matricula, self.__empleado, self.__programa)
