@@ -71,4 +71,4 @@ class GestorLadrillos:
         cantidad_ladrillos = len(self.__lista_ladrillos)
         print("\n---MOSTRAR LADRILLOS DE LA FABRICA 'NUESTRO HOGAR'---\n")
         for posicion_ladrillo in range(cantidad_ladrillos):
-            print(self.__lista_ladrillos[posicion_ladrillo].mostrarPedidioLadrillos())
+            self.__lista_ladrillos[posicion_ladrillo].mostrarPedidioLadrillos()

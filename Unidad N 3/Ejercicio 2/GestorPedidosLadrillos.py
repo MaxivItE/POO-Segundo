@@ -40,6 +40,6 @@ class PedidoLadrillos:
         print(self.__ladrillo)
         if self.__material != None:
             print(self.__material)
-            print(f"\n [Costo Final: {self.__ladrillo.getCosto() + self.__material.getCostoAdicional()}]")
+            print(f"\n [Costo Final: ${self.__ladrillo.getCosto() + self.__material.getCostoAdicional()}]")
         else:
-            print("\n El ladriilo no contiene material reciclado en su fabricación.")
+            print(f"\n El ladriilo  del pedido nro ({self.__numero_pedido}) NO contiene material reciclado en su fabricación.")
